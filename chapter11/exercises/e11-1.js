@@ -1,19 +1,68 @@
-// 11.10.1. Practice Your Skills
-//Create an anonymous fucntion and set it equal to a variable.
-
-
-
-/* Your function should:
-a) If passed a number, return the tripled value.
-b) If passed a string, return the string “ARRR!”
-c) Be sure to test your function before moving on the next part. */
-
-
-
-/* Use your fuction and the map method to change an array  as follows:
-a) Triple any the numbers.
-b) Replace any strings with “ARRR!”
-c) Print the new array to confirm your work.
-*/
-
-let arr = ['Elocution', 21, 'Clean teeth', 100];
+function checkFuel(level) {
+    if (level > 100000){
+      return 'green';
+    } else if (level > 50000){
+      return 'yellow';
+    } else {
+      return 'red';
+    }
+  }
+  
+  function holdStatus(arr){
+    if (arr.length < 7) {
+      return `Spaces available: ${7-arr.length}.`;
+    } else if (arr.length > 7){
+      return `Over capacity by ${arr.length-7} items.`;
+    } else {
+      return "Full";
+    }
+  }
+  
+  let fuelLevel = 200000;
+  let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
+  
+  // console.log("Fuel level: " + checkFuel(fuelLevel));
+  // console.log("Hold status: " + holdStatus(cargoHold));
+  let radioCheck = function (n){
+    if (checkFuel(n) === 'green') { 
+      return n - 100001; 
+    } 
+    else if (checkFuel(n) === 'yellow'){
+    return n - 50001;
+    }else {
+      return n
+    }
+    }; 
+  console.log(radioCheck(fuelLevel)) 
+  
+  
+  let cargoCheck = function(n) {   
+    let secondHold = []  
+    if (n.includes('gold')) {
+      secondHold.push(n.splice(n.indexOf('gold'), 1, 'water')[0]);
+    }
+    if (n.includes('satellite')) {
+      secondHold.push(n.splice(n.indexOf('satellite'), 1, 'water')[0]);
+    }
+  
+    return secondHold
+  } 
+  
+  let innocentVariable = function(b){
+      let items = ['dilithium','gold','AE-35 unit','Legos','TI-89 calculator', 'space suits', 'diamond tipped tools'];
+      let arr2 = [];
+      let i = 0;
+      while (i < b.length) {
+        if (items.includes(b[i])) {
+          arr2.push(b[i]);
+          b.splice(i,1,'pointless garbage');
+        }
+        i++;
+  
+   
+  
+        if (arr2.length >= 2) break;
+      }
+      return arr2;
+  };
+  

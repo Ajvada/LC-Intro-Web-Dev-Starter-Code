@@ -32,7 +32,7 @@ let candidateA = {
   };
   let candidateD = {
     'name':'Paddington',
-    'species':'bear',
+    'species':'bear', 
     'mass':31.8,
     'o2Used':function(hrs){return 0.047*hrs},
     'astronautID':291
